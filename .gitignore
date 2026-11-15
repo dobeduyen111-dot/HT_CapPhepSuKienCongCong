@@ -1,0 +1,19 @@
+## Visual Studio build and cache artifacts
+.vs/
+[Bb]in/
+[Oo]bj/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.cache
+
+## Temporary Word and Office files
+~$*.docx
+~$*.doc
+~$*.xlsx
+~$*.pptx
+
+## Local backup
+_BAOCAO_BACKUP/
+BaoCao_PhanTichThietKe_ViewParty_ChuanTheoMau.docx

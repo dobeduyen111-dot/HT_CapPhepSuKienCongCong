@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6ABBA92D-D0BC-46A6-B11F-BBA027175D1D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Viewparty</RootNamespace>
+    <AssemblyName>Viewparty</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="BCrypt.Net-Next">
+      <HintPath>lib\BCrypt-Net-Next.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Data\Db.cs" />
+    <Compile Include="Data\AccountRepository.cs" />
+    <Compile Include="Data\RegistrationRepository.cs" />
+    <Compile Include="Data\DiaDiemRepository.cs" />
+    <Compile Include="Data\HoSoRepository.cs" />
+    <Compile Include="Data\InteragencyWorkflowRepository.cs" />
+    <Compile Include="Data\CaseOfficerWorkflowRepository.cs" />
+    <Compile Include="Data\NgoaiLeWorkflowRepository.cs" />
+    <Compile Include="Data\LicenseDecisionRepository.cs" />
+    <Compile Include="Data\AdminWorkflowRepository.cs" />
+    <Compile Include="Data\DatabaseHealthRepository.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\RegistrationService.cs" />
+    <Compile Include="Services\DiaDiemService.cs" />
+    <Compile Include="Services\HoSoService.cs" />
+    <Compile Include="Services\InteragencyWorkflowService.cs" />
+    <Compile Include="Services\CaseOfficerWorkflowService.cs" />
+    <Compile Include="Services\NgoaiLeWorkflowService.cs" />
+    <Compile Include="Services\LicenseDecisionService.cs" />
+    <Compile Include="Services\AdminWorkflowService.cs" />
+    <Compile Include="Services\LocalExceptionLogger.cs" />
+    <Compile Include="Services\AuthorizationService.cs" />
+    <Compile Include="Services\DatabaseDiagnosticsService.cs" />
+    <Compile Include="Services\WordExportService.cs" />
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\WorkspaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\FormNavigation.cs" />
+    <Compile Include="Forms\RoleWorkspaceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\OrganizerWorkspaceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\CaseOfficerWorkspaceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\InteragencyWorkspaceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ApproverWorkspaceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminWorkspaceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\AuthenticatedUser.cs" />
+    <Compile Include="Models\CauHinhLienNganh.cs" />
+    <Compile Include="Models\DiaDiem.cs" />
+    <Compile Include="Models\DonViLienNganh.cs" />
+    <Compile Include="Models\GiayPhep.cs" />
+    <Compile Include="Models\HoSoCapPhep.cs" />
+    <Compile Include="Models\HoSoDraftData.cs" />
+    <Compile Include="Models\HoSoNopResult.cs" />
+    <Compile Include="Models\InteragencyWorkflowData.cs" />
+    <Compile Include="Models\CaseOfficerWorkflowData.cs" />
+    <Compile Include="Models\KetQuaKiemTra.cs" />
+    <Compile Include="Models\LichSuXuLy.cs" />
+    <Compile Include="Models\LoaiSuKien.cs" />
+    <Compile Include="Models\NgoaiLe.cs" />
+    <Compile Include="Models\NgoaiLeWorkflowData.cs" />
+    <Compile Include="Models\LicenseDecisionData.cs" />
+    <Compile Include="Models\AdminWorkflowData.cs" />
+    <Compile Include="Models\NhatKyCauHinh.cs" />
+    <Compile Include="Models\QuyenTrinhChieu.cs" />
+    <Compile Include="Models\QuyTac.cs" />
+    <Compile Include="Models\TaiKhoan.cs" />
+    <Compile Include="Models\TaiLieu.cs" />
+    <Compile Include="Models\ThongBao.cs" />
+    <Compile Include="Models\YeuCauYKien.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Forms\Organizer\HoSoCreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\HoSoCreateForm.Designer.cs">
+      <DependentUpon>HoSoCreateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Organizer\HoSoDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\HoSoDetailForm.Designer.cs">
+      <DependentUpon>HoSoDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Organizer\HoSoListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\HoSoListForm.Designer.cs">
+      <DependentUpon>HoSoListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Organizer\HoSoSubmitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\HoSoSubmitForm.Designer.cs">
+      <DependentUpon>HoSoSubmitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Organizer\NotificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\NotificationForm.Designer.cs">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Organizer\OrganizerDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\OrganizerDashboardForm.Designer.cs">
+      <DependentUpon>OrganizerDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Organizer\SafetyDocumentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\SafetyDocumentsForm.Designer.cs">
+      <DependentUpon>SafetyDocumentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Organizer\ScreeningRightsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\ScreeningRightsForm.Designer.cs">
+      <DependentUpon>ScreeningRightsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Organizer\SupplementDocumentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\SupplementDocumentsForm.Designer.cs">
+      <DependentUpon>SupplementDocumentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Organizer\VenueSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\DraftVenueSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\VenueSearchForm.Designer.cs">
+      <DependentUpon>VenueSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Organizer\WordFormsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Organizer\WordFormsForm.Designer.cs">
+      <DependentUpon>WordFormsForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Organizer\HoSoCreateForm.resx">
+      <DependentUpon>HoSoCreateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Organizer\HoSoDetailForm.resx">
+      <DependentUpon>HoSoDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Organizer\HoSoListForm.resx">
+      <DependentUpon>HoSoListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Organizer\HoSoSubmitForm.resx">
+      <DependentUpon>HoSoSubmitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Organizer\NotificationForm.resx">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Organizer\OrganizerDashboardForm.resx">
+      <DependentUpon>OrganizerDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Organizer\SafetyDocumentsForm.resx">
+      <DependentUpon>SafetyDocumentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Organizer\ScreeningRightsForm.resx">
+      <DependentUpon>ScreeningRightsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Organizer\SupplementDocumentsForm.resx">
+      <DependentUpon>SupplementDocumentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Organizer\VenueSearchForm.resx">
+      <DependentUpon>VenueSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Organizer\WordFormsForm.resx">
+      <DependentUpon>WordFormsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\CaseOfficer\CaseOfficerDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\CaseOfficerDashboardForm.Designer.cs">
+      <DependentUpon>CaseOfficerDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\ExceptionProposalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\ExceptionProposalForm.Designer.cs">
+      <DependentUpon>ExceptionProposalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\HoSoAppraisalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\HoSoAppraisalForm.Designer.cs">
+      <DependentUpon>HoSoAppraisalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\HoSoIntakeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\HoSoIntakeForm.Designer.cs">
+      <DependentUpon>HoSoIntakeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\HoSoValidationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\HoSoValidationForm.Designer.cs">
+      <DependentUpon>HoSoValidationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\InteragencyRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\InteragencyRequestForm.Designer.cs">
+      <DependentUpon>InteragencyRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\OpinionSummaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CaseOfficer\OpinionSummaryForm.Designer.cs">
+      <DependentUpon>OpinionSummaryForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\CaseOfficer\CaseOfficerDashboardForm.resx">
+      <DependentUpon>CaseOfficerDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CaseOfficer\ExceptionProposalForm.resx">
+      <DependentUpon>ExceptionProposalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CaseOfficer\HoSoAppraisalForm.resx">
+      <DependentUpon>HoSoAppraisalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CaseOfficer\HoSoIntakeForm.resx">
+      <DependentUpon>HoSoIntakeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CaseOfficer\HoSoValidationForm.resx">
+      <DependentUpon>HoSoValidationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CaseOfficer\InteragencyRequestForm.resx">
+      <DependentUpon>InteragencyRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CaseOfficer\OpinionSummaryForm.resx">
+      <DependentUpon>OpinionSummaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Interagency\InteragencyDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Interagency\InteragencyDashboardForm.Designer.cs">
+      <DependentUpon>InteragencyDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Interagency\OpinionResponseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Interagency\OpinionResponseForm.Designer.cs">
+      <DependentUpon>OpinionResponseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Interagency\RequestListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Interagency\RequestListForm.Designer.cs">
+      <DependentUpon>RequestListForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Interagency\InteragencyDashboardForm.resx">
+      <DependentUpon>InteragencyDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Interagency\OpinionResponseForm.resx">
+      <DependentUpon>OpinionResponseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Interagency\RequestListForm.resx">
+      <DependentUpon>RequestListForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Public\HomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Public\HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Public\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Public\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Public\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Public\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Approver\ApproverDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Approver\ApproverDashboardForm.Designer.cs">
+      <DependentUpon>ApproverDashboardForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Approver\ApproverDashboardForm.resx">
+      <DependentUpon>ApproverDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Approver\PendingApprovalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Approver\PendingApprovalForm.Designer.cs">
+      <DependentUpon>PendingApprovalForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Approver\PendingApprovalForm.resx">
+      <DependentUpon>PendingApprovalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Approver\ExceptionDecisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Approver\ExceptionDecisionForm.Designer.cs">
+      <DependentUpon>ExceptionDecisionForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Approver\ExceptionDecisionForm.resx">
+      <DependentUpon>ExceptionDecisionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Approver\PermitManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Approver\PermitManagementForm.Designer.cs">
+      <DependentUpon>PermitManagementForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Approver\PermitManagementForm.resx">
+      <DependentUpon>PermitManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Admin\AdminDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AdminDashboardForm.Designer.cs">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Admin\AdminDashboardForm.resx">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Admin\AccountManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AccountManagementForm.Designer.cs">
+      <DependentUpon>AccountManagementForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Admin\AccountManagementForm.resx">
+      <DependentUpon>AccountManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Admin\EventTypeManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\EventTypeManagementForm.Designer.cs">
+      <DependentUpon>EventTypeManagementForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Admin\EventTypeManagementForm.resx">
+      <DependentUpon>EventTypeManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Admin\VenueManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\VenueManagementForm.Designer.cs">
+      <DependentUpon>VenueManagementForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Admin\VenueManagementForm.resx">
+      <DependentUpon>VenueManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Admin\RuleManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\RuleManagementForm.Designer.cs">
+      <DependentUpon>RuleManagementForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Admin\RuleManagementForm.resx">
+      <DependentUpon>RuleManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Admin\InteragencyConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\InteragencyConfigForm.Designer.cs">
+      <DependentUpon>InteragencyConfigForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Admin\InteragencyConfigForm.resx">
+      <DependentUpon>InteragencyConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\Admin\AuditLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AuditLogForm.Designer.cs">
+      <DependentUpon>AuditLogForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Admin\AuditLogForm.resx">
+      <DependentUpon>AuditLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="Templates\VB01_ViewParty_VB01.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\VB02_ViewParty_VB02.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\VB03_ViewParty_VB03.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\VB04_ViewParty_VB04.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\VB05_ViewParty_VB05.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\VB06_ViewParty_VB06.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\VB07_ViewParty_VB07.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\VB08_ViewParty_VB08.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\VB09_ViewParty_VB09.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\VB10_ViewParty_VB10.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

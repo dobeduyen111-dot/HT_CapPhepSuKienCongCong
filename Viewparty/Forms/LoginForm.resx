@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Auth.EmptyInput" xml:space="preserve"><value>Vui lòng nhập tên đăng nhập và mật khẩu.</value></data>
+  <data name="Auth.AccountNotFound" xml:space="preserve"><value>Không tìm thấy tài khoản này.</value></data>
+  <data name="Auth.InvalidPassword" xml:space="preserve"><value>Mật khẩu không đúng.</value></data>
+  <data name="Auth.AccountDisabled" xml:space="preserve"><value>Tài khoản đang bị vô hiệu hóa hoặc chưa được kích hoạt.</value></data>
+  <data name="Auth.BCryptError" xml:space="preserve"><value>Không thể xác thực hash mật khẩu đã lưu. Lỗi BCrypt đã được ghi log.</value></data>
+  <data name="Auth.SchemaError" xml:space="preserve"><value>Schema tài khoản hoặc vai trò không khớp với ứng dụng.</value></data>
+  <data name="Auth.LogLocation" xml:space="preserve"><value>Chi tiết kỹ thuật đã ghi tại: </value></data>
+  <data name="Auth.Unexpected" xml:space="preserve"><value>Lỗi không dự kiến khi đăng nhập. Chi tiết kỹ thuật đã ghi tại: </value></data>
+  <data name="Auth.FailedTitle" xml:space="preserve"><value>Không thể đăng nhập</value></data>
+  <data name="ForgotPasswordMessage" xml:space="preserve"><value>Chức năng khôi phục mật khẩu chưa được kết nối dịch vụ.</value></data>
+  <data name="IncompleteTitle" xml:space="preserve"><value>Chưa hoàn thiện</value></data>
+</root>
